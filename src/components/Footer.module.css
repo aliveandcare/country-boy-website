@@ -1,0 +1,72 @@
+.footer {
+  background-color: #111827; /* Very dark gray, almost black */
+  color: #d1d5db; /* Light gray for text */
+  padding: 4rem 1.5rem 2rem 1.5rem;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr; /* Single column on mobile */
+  gap: 2.5rem;
+}
+
+.aboutColumn {
+  max-width: 350px;
+}
+
+.aboutText {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: #9ca3af; /* Lighter gray for the description */
+  margin-top: 1rem;
+}
+
+.column h3 {
+  font-size: 1.125rem;
+  font-weight: bold;
+  color: #ffffff;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+}
+
+.linkList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.linkList a {
+  color: #d1d5db;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.linkList a:hover {
+  color: #ffffff;
+}
+
+.contactInfo {
+  font-style: normal; /* Removes default italic styling from <address> */
+}
+
+.bottomBar {
+  max-width: 1200px;
+  margin: 3rem auto 0 auto;
+  padding-top: 2rem;
+  border-top: 1px solid #374151; /* A subtle border */
+  text-align: center;
+  font-size: 0.875rem;
+  color: #9ca3af;
+}
+
+/* Media query for a multi-column layout on larger screens */
+@media (min-width: 768px) {
+  .container {
+    grid-template-columns: 2fr 1fr 1fr; /* 3 columns, with the first being wider */
+  }
+}

@@ -1,0 +1,67 @@
+.form {
+  background: white;
+  padding: 2rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 15px 15px -3px rgba(0, 0, 0 / 0.1);
+  width: 90vw;
+  max-width: 700px;
+}
+.title {
+  margin: 0 0 1.5rem 0;
+  font-size: 1.75rem;
+  font-weight: bold;
+  text-align: center;
+}
+.inputGroup {
+  margin-bottom: 1rem;
+}
+.inputGroup label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: #374151;
+}
+.inputGroup input,
+.inputGroup textarea,
+.inputGroup select {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  background-color: white;
+}
+.inputGroup textarea {
+  resize: vertical;
+}
+.submitButton {
+  width: 100%;
+  margin-top: 1rem;
+  padding: 0.8rem;
+  border: none;
+  background-color: #2563eb;
+  color: white;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+.submitButton:hover {
+  background-color: #1d4ed8;
+}
+.error {
+  color: #ef4444;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+.divider {
+  border: none;
+  border-top: 1px solid #e5e7eb;
+  margin: 1.5rem 0;
+}
+.scanningText {
+  font-style: italic;
+  color: #6b7280;
+  margin-top: 0.5rem;
+}

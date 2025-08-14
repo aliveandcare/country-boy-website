@@ -1,0 +1,124 @@
+.hero {
+  padding: 120px 1.5rem 4rem 1.5rem;
+  text-align: center;
+}
+
+.heading {
+  font-size: 3rem;
+  font-weight: 800;
+  color: #1f2937;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.highlight {
+  color: #2563eb;
+}
+
+.subheading {
+  font-size: 1.25rem;
+  color: #4b5563;
+  margin-top: 1rem;
+  margin-bottom: 3rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.heroGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+  gap: 2rem;
+  max-width: 1800px; /* <-- Increased max width */
+  margin: 0 auto;
+}
+
+.sideColumn {
+  text-align: left;
+}
+
+.valueList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.valueItem {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.icon {
+  font-size: 1.75rem;
+  color: #2563eb;
+  flex-shrink: 0;
+  width: 40px;
+  text-align: center;
+}
+
+.header {
+  font-family: rockwell, 'Courier New', Courier, monospace;
+  font-size: 5.5rem;
+  font-weight: 1500;
+  color: #111827;
+  margin-bottom: 1rem;
+}
+.itemText {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #374151;
+}
+
+.itemText strong {
+  display: block;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.carouselContainer {
+  position: relative;
+  width: 100%;
+  height: 80vh; /* <-- Adjusted height for a wider feel */
+  min-height: 400px;
+  max-height: 550px; /* <-- Adjusted max-height */
+  border-radius: 0.75rem;
+  overflow: hidden;
+  order: -1;
+}
+
+@media (min-width: 1024px) {
+  .heroGrid {
+    
+    grid-template-columns: .75fr 3.5fr .75fr; 
+    gap: 3rem;
+  }
+  .carouselContainer {
+    order: 0;
+  }
+}
+.reviewColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.reviewButton {
+  background-color: #16a34a;
+  color: white;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.reviewButton:hover {
+  background-color: #15803d;
+}
