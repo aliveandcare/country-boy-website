@@ -86,7 +86,7 @@ export default function PhotoCollage() {
 
   useEffect(() => {
     const currentMedia = isSlotAVisible ? slotA : slotB;
-    const interval = currentMedia.type === 'video' ? 15000 : 7000; // Longer interval for videos
+    const interval = currentMedia.type === 'video' ? 37000 : 7000; // Longer interval for videos
 
     const timer = setInterval(() => {
       const targetSlot = isSlotAVisible ? 'B' : 'A';
