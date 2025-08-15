@@ -9,9 +9,18 @@ export default function AboutPage() {
       <Header />
       <main className={styles.main}>
         <div className={styles.container}>
-          <h1 className={styles.title}>About Us</h1>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-          <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Curabitur pretium tincidunt lacus. Nulla gravida orci a odio. Nullam varius, turpis et commodo pharetra, est eros bibendum elit, nec luctus magna felis sollicitudin mauris. Integer in mauris eu nibh euismod gravida. Duis ac tellus et risus vulputate vehicula.</p>
+          <h1 className={styles.title}>More Than a Business — It’s a Mission for a Fresh Start</h1>
+          
+          <p>At Country Boy, we are a professional handyman and construction service dedicated to providing high-quality craftsmanship to our community. From home repairs and painting to landscaping and full remodels, we approach every job with skill, integrity, and a commitment to excellence.</p>
+          
+          <p>But our work goes deeper than just the services we provide. Country Boy is a proud extension of <a href="https://crossstylecenter.org" target="_blank" rel="noopener noreferrer">Cross Style Life Recovery</a>, a non-profit church and life recovery center based right here in Lebanon, TN. We were founded on the belief that everyone deserves a second chance. Our business provides more than just a job; it offers a structured, supportive environment for individuals in the recovery program to learn valuable skills, build a new foundation, and take meaningful steps toward rebuilding their lives.</p>
+          
+          <p>When you choose Country Boy for your project, you're doing more than just hiring a contractor—you are directly participating in this mission of transformation. Every project we complete helps fund the vital work of Cross Style and provides real-world experience and a steady hand-up for men committed to positive change. Your trust in our work fuels self-growth, restores dignity, and strengthens our entire community.</p>
+          
+          <p>Our commitment to our mission is matched only by our commitment to our craft. We believe that doing good work and being good people go hand-in-hand. You can expect professionalism, integrity, and a high-quality result on every project, big or small.</p>
+          
+          <p>Thank you for considering Country Boy. Let's work together to bring your vision to life and build a stronger community, one project at a time.</p>
+
         </div>
       </main>
       <Footer />
