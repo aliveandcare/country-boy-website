@@ -5,7 +5,7 @@ import Header from '@/components/Header';
 import Hero from '@/components/Hero';
 import TrustBadges from '@/components/TrustBadges';
 import Services from '@/components/Services';
-import Mission from '@/components/Mission';
+// import Mission from '@/components/Mission';
 import CallToAction from '@/components/CallToAction';
 import Footer from '@/components/Footer';
 import Modal from '@/components/Modal';
@@ -22,7 +22,7 @@ export default function Home() {
         <Hero />
         <TrustBadges />
         <Services />
-        <Mission />
+        {/* <Mission /> */}
         <CallToAction />
       </main>
       <Footer />
