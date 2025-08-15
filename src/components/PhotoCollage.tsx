@@ -10,8 +10,7 @@ interface MediaItemType {
   animation?: string;
 }
 
-
-const media = [
+const media: MediaItemType[] = [
   { type: 'image', src: '/ford1.jpg' },
   { type: 'image', src: '/ford2.jpg' },
   { type: 'image', src: '/ford.jpg' },
@@ -47,8 +46,6 @@ const media = [
   { type: 'image', src: '/stripe.jpg' },
 ];
 
-
-
 const animationClasses = [
   styles['kenburns-top'],
   styles['kenburns-bottom-right'],
@@ -56,7 +53,7 @@ const animationClasses = [
   styles['kenburns-pan-left'],
 ];
 
-const getRandomItem = (arr: any[]) => arr[Math.floor(Math.random() * arr.length)];
+const getRandomItem = <T,>(arr: T[]): T => arr[Math.floor(Math.random() * arr.length)];
 
 const MediaItem = ({ item, isVisible }: { item: MediaItemType; isVisible: boolean }) => {
   const animation = item.type === 'image' ? item.animation : '';
@@ -88,20 +85,25 @@ const MediaItem = ({ item, isVisible }: { item: MediaItemType; isVisible: boolea
 };
 
 export default function PhotoCollage() {
-  const [slotA, setSlotA] = useState({ ...media[0], animation: animationClasses[0] });
-  const [slotB, setSlotB] = useState({ ...media[1], animation: animationClasses[1] });
+  const [slotA, setSlotA] = useState<MediaItemType>({ ...media[0], animation: animationClasses[0] });
+  const [slotB, setSlotB] = useState<MediaItemType>({ ...media[1], animation: animationClasses[1] });
   const [isSlotAVisible, setIsSlotAVisible] = useState(true);
   const [nextMediaIndex, setNextMediaIndex] = useState(2);
 
   useEffect(() => {
     const currentMedia = isSlotAVisible ? slotA : slotB;
-    const interval = currentMedia.type === 'video' ? 37000 : 7000; // Longer interval for videos
+    const interval = currentMedia.type === 'video' ? 37000 : 7000;
 
     const timer = setInterval(() => {
       const targetSlot = isSlotAVisible ? 'B' : 'A';
       const nextMediaItem = media[nextMediaIndex % media.length];
-      const nextAnimation = getRandomItem(animationClasses);      
-      const newItem = { ...nextMediaItem, animation: nextAnimation };
+      const nextAnimation = getRandomItem(animationClasses);
+      
+      const newItem: MediaItemType = {
+        src: nextMediaItem.src,
+        type: nextMediaItem.type,
+        animation: nextAnimation,
+      };
 
       if (targetSlot === 'A') {
         setSlotA(newItem);
@@ -111,7 +113,6 @@ export default function PhotoCollage() {
 
       setNextMediaIndex(prevIndex => prevIndex + 1);
       setIsSlotAVisible(prev => !prev);
-
     }, interval);
 
     return () => clearInterval(timer);
