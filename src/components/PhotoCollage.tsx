@@ -4,6 +4,13 @@ import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import styles from './PhotoCollage.module.css';
 
+interface MediaItemType {
+  type: 'image' | 'video';
+  src: string;
+  animation?: string;
+}
+
+
 const media = [
   { type: 'image', src: '/ford1.jpg' },
   { type: 'image', src: '/ford2.jpg' },
@@ -40,6 +47,8 @@ const media = [
   { type: 'image', src: '/stripe.jpg' },
 ];
 
+
+
 const animationClasses = [
   styles['kenburns-top'],
   styles['kenburns-bottom-right'],
@@ -49,7 +58,7 @@ const animationClasses = [
 
 const getRandomItem = (arr: any[]) => arr[Math.floor(Math.random() * arr.length)];
 
-const MediaItem = ({ item, isVisible }: { item: any; isVisible: boolean }) => {
+const MediaItem = ({ item, isVisible }: { item: MediaItemType; isVisible: boolean }) => {
   const animation = item.type === 'image' ? item.animation : '';
   
   if (item.type === 'video') {
@@ -91,8 +100,7 @@ export default function PhotoCollage() {
     const timer = setInterval(() => {
       const targetSlot = isSlotAVisible ? 'B' : 'A';
       const nextMediaItem = media[nextMediaIndex % media.length];
-      const nextAnimation = getRandomItem(animationClasses);
-      
+      const nextAnimation = getRandomItem(animationClasses);      
       const newItem = { ...nextMediaItem, animation: nextAnimation };
 
       if (targetSlot === 'A') {
