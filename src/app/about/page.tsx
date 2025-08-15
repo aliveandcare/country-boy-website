@@ -42,13 +42,14 @@ export default function AboutPage() {
             <p>When you choose Country Boy for your project, you&apos;re doing more than just hiring a contractor—you are directly participating in this mission of transformation. Every project we complete helps fund the vital work of Cross Style and provides real-world experience and a steady hand-up for men committed to positive change.</p>
           </div>
            <div className={styles.imageContainer}>
+            <a href="crossstylecenter.org">
              <Image 
               src="/logo.jpg" // Replace with a photo of the center or their logo
               alt="Cross Style Life Recovery Center"
               fill
               style={{ objectFit: 'contain', padding: '2rem' }}
               sizes="(max-width: 768px) 100vw, 50vw"
-            />
+            /></a>
           </div>
         </section>
       </main>
