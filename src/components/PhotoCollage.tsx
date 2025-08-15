@@ -14,7 +14,7 @@ const media: MediaItemType[] = [
   { type: 'image', src: '/ford1.jpg' },
   { type: 'image', src: '/ford2.jpg' },
   { type: 'image', src: '/ford.jpg' },
-  { type: 'video', src: '/video1.mp4' },
+  { type: 'video', src: '/Video1.mp4' },
   { type: 'image', src: '/drain.jpg' },
   { type: 'image', src: '/field.jpg' },
   { type: 'image', src: '/grass.jpg' },
