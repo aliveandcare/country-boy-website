@@ -42,7 +42,7 @@ export default function Footer() {
       </div>
 
       <div className={styles.bottomBar}>
-        <p>&copy; {currentYear} Andrew Thomas. All Rights Reserved.</p>
+        <p>&copy; {currentYear} Cross Style Internation Ministries. All Rights Reserved.</p>
       </div>
     </footer>
   );
