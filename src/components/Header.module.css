@@ -109,31 +109,33 @@
 }
 
 @media (max-width: 1024px) {
-  .leftNav, .rightNav {
-    display: none;
-  }
-  
   .header {
+    height: 90px;
     justify-content: center;
   }
-  
-  .logoContainer {
-    position: relative;
-    transform: translateY(45px);
-    top: auto;
-    left: auto;
-    width: 125px;
-    height: 125px;
+
+  .leftNav, .rightNav {
+    display: none;
   }
 
   .header::after {
     display: none;
   }
-  
+
+  .logoContainer {
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
+    width: 110px;
+    height: 100px;
+    border-width: 3px;
+  }
+
   .hamburgerButton {
     display: block;
     position: absolute;
-    top: 40px;
+    top: 45px;
     right: 1.5rem;
     transform: translateY(-50%);
     z-index: 1001;
@@ -150,8 +152,9 @@
   .menuOpen .hamburgerIcon span:nth-child(1) { top: 10px; transform: rotate(135deg); }
   .menuOpen .hamburgerIcon span:nth-child(2) { opacity: 0; left: -30px; }
   .menuOpen .hamburgerIcon span:nth-child(3) { top: 10px; transform: rotate(-135deg); }
+  
   .mobileMenu { display: flex; position: fixed; top: 0; right: 0; height: 100vh; width: 280px; background-color: #111827; box-shadow: -5px 0 15px rgba(0,0,0,0.2); transform: translateX(100%); transition: transform 0.3s ease-in-out; padding-top: 100px; flex-direction: column; align-items: center; gap: 1rem; z-index: 1000; }
   .menuOpen .mobileMenu { transform: translateX(0); }
-  .mobileMenu a { color: #e5e7eb; text-decoration: none; font-size: 1.25rem; font-weight: 500; padding: 1rem 2rem; width: 100%; text-align: center; }
-  .mobileMenu a:hover { background-color: #374151; }
+  .mobileMenu a, .mobileMenu button { color: #e5e7eb; text-decoration: none; font-size: 1.25rem; font-weight: 500; padding: 1rem 2rem; width: 100%; text-align: center; background: none; border: none; font-family: inherit; cursor: pointer; }
+  .mobileMenu a:hover, .mobileMenu button:hover { background-color: #374151; }
 }
