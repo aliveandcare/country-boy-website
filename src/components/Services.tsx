@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './Services.module.css';
-import { FaPaintBrush, FaWrench, FaTree, FaPlug, FaTachometerAlt, FaHammer } from 'react-icons/fa';
+import { FaPaintBrush, FaWrench, FaTree, FaPlug, FaRoad, FaHammer } from 'react-icons/fa';
 
 const services = [
   {
@@ -25,13 +25,13 @@ const services = [
   },
   {
     icon: <FaTree />,
-    title: 'Landscaping & Decks',
+    title: 'Landscaping & Hardscaping',
     description: 'Basic landscaping services including mulching, planting, and building or repairing decks.',
   },
   {
-    icon: <FaTachometerAlt />,
-    title: 'Furniture Assembly',
-    description: 'We assemble furniture, exercise equipment, grills, and more, so you don\'t have to.',
+    icon: <FaRoad />,
+    title: 'Decks & Driveways',
+    description: 'We are fully capable to build you a new deck as well as driveways',
   },
 ];
 
