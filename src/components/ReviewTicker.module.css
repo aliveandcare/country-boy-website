@@ -1,11 +1,9 @@
 .tickerWrap {
   width: 100%;
-  height: 450px; /* <-- This is the crucial fix */
-  overflow: hidden; /* This hides the parts of the list that are off-screen */
+  height: 450px; 
+  overflow: hidden;
   position: relative;
-  
-  /* A cleaner way to create the fade effect at the top and bottom */
-  -webkit-mask-image: linear-gradient(to bottom, 
+    -webkit-mask-image: linear-gradient(to bottom, 
       transparent 0%, 
       black 15%, 
       black 85%, 
