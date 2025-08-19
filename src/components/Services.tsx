@@ -31,7 +31,7 @@ const services = [
   {
     icon: <FaRoad />,
     title: 'Decks & Driveways',
-    description: 'We are fully capable to build you a new deck as well as driveways',
+    description: 'Your new deck or driveway is only a call away.',
   },
 ];
 
