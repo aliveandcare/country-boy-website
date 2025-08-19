@@ -4,11 +4,11 @@ import Mailgun from 'mailgun.js';
 
 export async function POST(request: Request) {
   const mailgun = new Mailgun(formData);
-  const mg = mailgun.client({
-    username: process.env.MAILGUN_USERNAME || 'api',
-    key: process.env.MAILGUN_API_KEY || '',
-  });
-
+ const mg = mailgun.client({
+  username: process.env.MAILGUN_USERNAME || 'api',
+  key: process.env.MAILGUN_API_KEY || '',
+  url: `https://api.mailgun.net`,
+});
   try {
     const data = await request.formData();
     const name = data.get('name') as string;
