@@ -19,7 +19,7 @@ export async function POST(request: Request) {
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const messageData: any = {
-      from: `Quote Request <mailgun@${process.env.TO_EMAIL_ADDRESS}>`,
+      from: `Quote Request <mailgun@${process.env.MAILGUN_DOMAIN}>`,
       to: [process.env.TO_EMAIL_ADDRESS || ''],
       subject: `New Quote Request from ${name}`,
       html: `
