@@ -1,35 +1,64 @@
-'use client';
+import HomePageClient from '@/components/HomePageClient';
+import { client } from '@/sanity/client';
 
-import React from 'react';
-import Header from '@/components/Header';
-import Hero from '@/components/Hero';
-import TrustBadges from '@/components/TrustBadges';
-import Services from '@/components/Services';
-// import Mission from '@/components/Mission';
-import CallToAction from '@/components/CallToAction';
-import Footer from '@/components/Footer';
-import Modal from '@/components/Modal';
-import QuoteForm from '@/components/QuoteForm';
-import { useModalStore } from '@/store/modalStore';
+// Define the data types we expect from Sanity
+interface SanityMedia {
+  mediaUrl: string;
+  mediaType: 'image' | 'video';
+}
 
-export default function Home() {
-  const { isQuoteModalOpen, closeQuoteModal } = useModalStore();
+interface SanityReview {
+  quote: string;
+  authorName: string;
+  rating: number;
+}
 
+interface CtaContent {
+  ctaHeading: string;
+  ctaSubheading: string;
+  ctaButtonText: string;
+}
+
+interface SiteSettings {
+  phoneNumber: string;
+  emailAddress: string;
+  facebookURL: string;
+  instagramURL: string;
+}
+
+interface SanityService {
+  title: string;
+  description: string;
+  iconUrl: string | null;
+}
+
+async function getPageData() {
+  const query = `{
+    "galleryItems": *[_type == "project"] | order(_createdAt asc){ "mediaUrl": mediaFile.asset->url, mediaType },
+    "reviews": *[_type == "testimonial" && isApproved == true]{ quote, authorName, rating },
+    "ctaContent": *[_type == "homePage"][0]{ ctaHeading, ctaSubheading, ctaButtonText },
+    "settings": *[_type == "siteSettings"][0]{ phoneNumber, emailAddress, facebookURL, instagramURL },
+    "services": *[_type == "service"]{ title, description, "iconUrl": mainImage.asset->url }
+  }`;
+  const data = await client.fetch(query);
+  return data;
+}
+
+export default async function HomePage() {
+  const { galleryItems, reviews, ctaContent, settings, services } = await getPageData();
+
+  const mediaForCollage = galleryItems.map((item: SanityMedia) => ({
+    type: item.mediaType,
+    src: item.mediaUrl,
+  }));
+  
   return (
-    <>
-      <Header />
-      <main>
-        <Hero />
-        <TrustBadges />
-        <Services />
-        {/* <Mission /> */}
-        <CallToAction />
-      </main>
-      <Footer />
-
-      <Modal isOpen={isQuoteModalOpen} onClose={closeQuoteModal}>
-        <QuoteForm />
-      </Modal>
-    </>
+    <HomePageClient 
+      mediaForCollage={mediaForCollage} 
+      reviews={reviews} 
+      ctaContent={ctaContent}
+      settings={settings}
+      services={services}
+    />
   );
 }

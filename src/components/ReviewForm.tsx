@@ -1,9 +1,8 @@
 'use client';
+
 import React, { useState } from 'react';
 import styles from './ReviewForm.module.css';
 import { FaStar } from 'react-icons/fa';
-import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
-import { db } from '@/lib/firebase';
 
 export default function ReviewForm({ onClose }: { onClose: () => void }) {
   const [rating, setRating] = useState(0);
@@ -23,12 +22,22 @@ export default function ReviewForm({ onClose }: { onClose: () => void }) {
     setError('');
     
     try {
-      await addDoc(collection(db, 'reviews'), {
-        name: name,
-        rating: rating,
-        text: text,
-        createdAt: serverTimestamp()
+      const response = await fetch('/api/createReview', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          authorName: name,
+          quote: text,
+          rating: rating,
+        }),
       });
+
+      if (!response.ok) {
+        throw new Error('Server responded with an error');
+      }
+
       alert('Thank you for your review!');
       onClose();
     } catch (err) {

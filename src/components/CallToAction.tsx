@@ -5,17 +5,22 @@ import { FaHammer } from 'react-icons/fa';
 import styles from './CallToAction.module.css';
 import { useModalStore } from '@/store/modalStore';
 
-export default function CallToAction() {
+interface CtaContent {
+  ctaHeading: string;
+  ctaSubheading: string;
+  ctaButtonText: string;
+}
+
+export default function CallToAction({ ctaContent }: { ctaContent: CtaContent }) {
   const openQuoteModal = useModalStore((state) => state.openQuoteModal);
 
   return (
     <section className={styles.section}>
       <div className={styles.container}>
         <div className={styles.icon}><FaHammer /></div>
-        <h3 className={styles.heading}>Ready to Start Your Project?</h3>
-        <p className={styles.subheading}>From plumbing to painting, our expert team is ready to bring your vision to life. Let&apos;s build something great together.</p>
-        <button onClick={openQuoteModal} className={styles.ctaButton}>
-          Bring Your Vision To Life
+        <h3 className={styles.heading}>{ctaContent?.ctaHeading}</h3>
+        <p className={styles.subheading}>{ctaContent?.ctaSubheading}</p>
+        <button onClick={openQuoteModal} className={styles.ctaButton}>{ctaContent?.ctaButtonText}
         </button>
       </div>
     </section>

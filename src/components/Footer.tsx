@@ -3,8 +3,21 @@ import Link from 'next/link';
 import Image from 'next/image';
 import styles from './Footer.module.css';
 
-export default function Footer() {
+// Define the shape of the settings data
+interface SiteSettings {
+  phoneNumber: string;
+  emailAddress: string;
+  facebookURL: string;
+  instagramURL: string;
+}
+
+// Update the component to accept the 'settings' prop
+export default function Footer({ settings }: { settings: SiteSettings }) {
   const currentYear = new Date().getFullYear();
+
+  // A fallback in case the settings data isn't available yet
+  const phoneNumber = settings?.phoneNumber || '(123) 456-7890';
+  const emailAddress = settings?.emailAddress || 'email@example.com';
 
   return (
     <footer className={styles.footer}>
@@ -34,8 +47,9 @@ export default function Footer() {
           <h3>Contact Us</h3>
           <address className={styles.contactInfo}>
             <ul className={styles.linkList}>
-              <li><a href="tel:615-762-7486">(615) 762-7486</a></li>
-              <li><a href="mailto:crossstylecenter.chris@gmail.com">CrossStyleCenter.Chris@gmail.com</a></li>
+              {/* Use the dynamic phone number and email from Sanity */}
+              <li><a href={`tel:${phoneNumber}`}>{phoneNumber}</a></li>
+              <li><a href={`mailto:${emailAddress}`}>{emailAddress}</a></li>
             </ul>
           </address>
         </div>

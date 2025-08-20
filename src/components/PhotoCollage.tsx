@@ -10,44 +10,9 @@ interface MediaItemType {
   animation?: string;
 }
 
-const media: MediaItemType[] = [
-  { type: 'image', src: '/ford1.jpg' },
-  { type: 'image', src: '/ford2.jpg' },
-  { type: 'image', src: '/ford.jpg' },
-  { type: 'video', src: '/Video1.mp4' },
-  { type: 'image', src: '/driveway1.jpg'},
-  { type: 'image', src: '/driveway2.jpg'},
-  { type: 'image', src: '/driveway3.jpg'},
-  { type: 'image', src: '/drain.jpg' },
-  { type: 'image', src: '/field.jpg' },
-  { type: 'image', src: '/grass.jpg' },
-  { type: 'image', src: '/siding1.png' },
-  { type: 'image', src: '/siding2.png' },
-  { type: 'image', src: '/siding3.png' },
-  { type: 'image', src: '/sidewalk.jpg' },
-  { type: 'image', src: '/sidewalk1.jpg' },
-  { type: 'image', src: '/ac.jpg' },
-  { type: 'image', src: '/pad.jpg' },
-  { type: 'image', src: '/addition.jpg' },
-  { type: 'image', src: '/addition1.jpg' },
-  { type: 'image', src: '/metalbarn.jpg' },
-  { type: 'image', src: '/metalbarn1.jpg' },
-  { type: 'image', src: '/metalbarn2.jpg' },
-  { type: 'image', src: '/newroom.jpg' },
-  { type: 'image', src: '/newroom1.jpg' },
-  { type: 'image', src: '/newroom2.jpg' },
-  { type: 'image', src: '/newroom3.jpg' },
-  { type: 'image', src: '/newroom4.jpg' },
-  { type: 'image', src: '/landscaping.png' },
-  { type: 'image', src: '/grading.jpg' },
-  { type: 'image', src: '/grading1.jpg' },
-  { type: 'image', src: '/gravel.jpg' },
-  { type: 'image', src: '/plumbing.jpg' },
-  { type: 'image', src: '/plumbing1.jpg' },
-  { type: 'image', src: '/mower.jpg' },
-  { type: 'image', src: '/mowers.jpg' },
-  { type: 'image', src: '/stripe.jpg' },
-];
+interface PhotoCollageProps {
+  media: MediaItemType[];
+}
 
 const animationClasses = [
   styles['kenburns-top'],
@@ -87,13 +52,19 @@ const MediaItem = ({ item, isVisible }: { item: MediaItemType; isVisible: boolea
   );
 };
 
-export default function PhotoCollage() {
+export default function PhotoCollage({ media }: PhotoCollageProps) {
+  if (!media || media.length === 0) {
+    return <div className={styles.container}>No media to display.</div>;
+  }
+
   const [slotA, setSlotA] = useState<MediaItemType>({ ...media[0], animation: animationClasses[0] });
-  const [slotB, setSlotB] = useState<MediaItemType>({ ...media[1], animation: animationClasses[1] });
+  const [slotB, setSlotB] = useState<MediaItemType>({ ...(media[1] || media[0]), animation: animationClasses[1] });
   const [isSlotAVisible, setIsSlotAVisible] = useState(true);
   const [nextMediaIndex, setNextMediaIndex] = useState(2);
 
   useEffect(() => {
+    if (media.length < 2) return;
+
     const currentMedia = isSlotAVisible ? slotA : slotB;
     const interval = currentMedia.type === 'video' ? 37000 : 7000;
 
@@ -119,7 +90,15 @@ export default function PhotoCollage() {
     }, interval);
 
     return () => clearInterval(timer);
-  }, [isSlotAVisible, nextMediaIndex, slotA, slotB]);
+  }, [isSlotAVisible, nextMediaIndex, slotA, slotB, media]);
+
+  if (media.length === 1) {
+    return (
+      <div className={styles.container}>
+        <MediaItem item={slotA} isVisible={true} />
+      </div>
+    );
+  }
 
   return (
     <div className={styles.container}>

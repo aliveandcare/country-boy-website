@@ -6,12 +6,24 @@ import Link from 'next/link';
 import styles from './Header.module.css';
 import { useModalStore } from '@/store/modalStore';
 
-export default function Header() {
+// Define the shape of the settings data
+interface SiteSettings {
+  phoneNumber: string;
+  emailAddress: string;
+  facebookURL: string;
+  instagramURL: string;
+}
+
+// Update the component to accept the 'settings' prop
+export default function Header({ settings }: { settings: SiteSettings }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const openQuoteModal = useModalStore((state) => state.openQuoteModal);
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
   const handleLinkClick = () => setIsMenuOpen(false);
+
+  // A fallback in case the settings data isn't available yet
+  const phoneNumber = settings?.phoneNumber || '(123) 456-7890';
 
   return (
     <div className={`${styles.headerWrap} ${isMenuOpen ? styles.menuOpen : ''}`}>
@@ -20,7 +32,8 @@ export default function Header() {
           <button onClick={openQuoteModal} className={styles.quoteButton}>
             Bring Your Vision To Life
           </button>
-          <a href="tel:615-762-7486" className={styles.phoneNumber}>(615) 762-7486</a>
+          {/* Use the dynamic phone number from Sanity */}
+          <a href={`tel:${phoneNumber}`} className={styles.phoneNumber}>{phoneNumber}</a>
         </div>
         <div className={styles.logoContainer}>
           <Link href="/"><Image src="/logo.png" alt="Country Boy Logo" fill style={{ objectFit: 'cover' }} priority sizes="180px"/></Link>
@@ -45,7 +58,8 @@ export default function Header() {
         <button onClick={() => { openQuoteModal(); handleLinkClick(); }} className={styles.quoteButton}>
           Bring Your Vision To Life
         </button>
-        <a href="tel:615-762-7486" className={styles.phoneNumber}>(615) 762-7486</a>
+        {/* Use the dynamic phone number from Sanity again for the mobile menu */}
+        <a href={`tel:${phoneNumber}`} className={styles.phoneNumber}>{phoneNumber}</a>
       </nav>
     </div>
   );

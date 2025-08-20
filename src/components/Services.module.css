@@ -1,6 +1,5 @@
 .section {
   padding: 4rem 1.5rem;
-  /* background-color: #f9fafb; */
 }
 
 .heading {
@@ -16,13 +15,12 @@
   max-width: 1200px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 1fr; /* 1 column on mobile */
+  grid-template-columns: 1fr;
   gap: 2rem;
 }
 
 .card {
-  /* background-color: #ffffff; */
-  border-radius: 0.75rem; /* Slightly more rounded */
+  border-radius: 0.75rem;
   padding: 2.5rem 2rem;
   text-align: center;
   box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05);
@@ -32,13 +30,6 @@
 .card:hover {
   transform: translateY(-8px);
   box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
-}
-
-.icon {
-  font-size: 3rem;
-  color: #2563eb; /* Primary Blue */
-  margin-bottom: 1.5rem;
-  display: inline-block;
 }
 
 .title {
@@ -52,8 +43,17 @@
   color: #4b5563;
   line-height: 1.6;
 }
+.cardButton {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  text-align: inherit;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
 
-/* Media Queries for responsive grid */
 @media (min-width: 640px) {
   .grid {
     grid-template-columns: repeat(2, 1fr);
@@ -63,5 +63,22 @@
 @media (min-width: 1024px) {
   .grid {
     grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+
+.icon {
+  position: relative;
+  width: 80px;      
+  height: 80px; 
+  margin: 0 auto 1.5rem auto;
+  border-radius: 0.75rem; 
+  overflow: hidden;       
+}
+
+@media (max-width: 768px) {
+  .icon {
+    width: 60px; 
+    height: 60px;
   }
 }
