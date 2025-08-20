@@ -15,14 +15,13 @@ export default function ReviewTicker({ reviews }: { reviews: Review[] }) {
     return <div className={styles.tickerWrap}>No approved reviews yet.</div>;
   }
 
-  // Duplicate the reviews to create a seamless scrolling effect
   const extendedReviews = [...reviews, ...reviews];
 
   return (
     <div className={styles.tickerWrap}>
       <ul className={styles.ticker}>
         {extendedReviews.map((review, index) => (
-          <li key={index} className={styles.card}>
+          <li key={`${review.authorName}-${index}`} className={styles.card}>
             <div className={styles.header}>
               <p className={styles.name}>{review.authorName}</p>
               <div className={styles.stars}>
@@ -31,7 +30,7 @@ export default function ReviewTicker({ reviews }: { reviews: Review[] }) {
                 ))}
               </div>
             </div>
-            <p className={styles.text}>"{review.quote}"</p>
+            <p className={styles.text}>&quot;{review.quote}&quot;</p>
           </li>
         ))}
       </ul>
