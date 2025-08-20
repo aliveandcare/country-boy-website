@@ -25,7 +25,7 @@ const getRandomItem = <T,>(arr: T[]): T => arr[Math.floor(Math.random() * arr.le
 
 const MediaItem = ({ item, isVisible }: { item: MediaItemType; isVisible: boolean }) => {
   const animation = item.type === 'image' ? item.animation : '';
-  
+
   if (item.type === 'video') {
     return (
       <video
@@ -53,17 +53,22 @@ const MediaItem = ({ item, isVisible }: { item: MediaItemType; isVisible: boolea
 };
 
 export default function PhotoCollage({ media }: PhotoCollageProps) {
-  if (!media || media.length === 0) {
-    return <div className={styles.container}>No media to display.</div>;
-  }
-
-  const [slotA, setSlotA] = useState<MediaItemType>({ ...media[0], animation: animationClasses[0] });
-  const [slotB, setSlotB] = useState<MediaItemType>({ ...(media[1] || media[0]), animation: animationClasses[1] });
   const [isSlotAVisible, setIsSlotAVisible] = useState(true);
   const [nextMediaIndex, setNextMediaIndex] = useState(2);
+  const [slotA, setSlotA] = useState<MediaItemType>(
+    media && media.length > 0
+      ? { ...media[0], animation: animationClasses[0] }
+      : { type: 'image', src: '', animation: '' }
+  );
+  const [slotB, setSlotB] = useState<MediaItemType>(
+    media && media.length > 1
+      ? { ...media[1], animation: animationClasses[1] }
+      : { type: 'image', src: '', animation: '' }
+  );
 
   useEffect(() => {
-    if (media.length < 2) return;
+    // Conditional logic is now inside the effect, which is allowed.
+    if (!media || media.length < 2) return;
 
     const currentMedia = isSlotAVisible ? slotA : slotB;
     const interval = currentMedia.type === 'video' ? 37000 : 7000;
@@ -72,7 +77,7 @@ export default function PhotoCollage({ media }: PhotoCollageProps) {
       const targetSlot = isSlotAVisible ? 'B' : 'A';
       const nextMediaItem = media[nextMediaIndex % media.length];
       const nextAnimation = getRandomItem(animationClasses);
-      
+
       const newItem: MediaItemType = {
         src: nextMediaItem.src,
         type: nextMediaItem.type,
@@ -91,11 +96,14 @@ export default function PhotoCollage({ media }: PhotoCollageProps) {
 
     return () => clearInterval(timer);
   }, [isSlotAVisible, nextMediaIndex, slotA, slotB, media]);
+  if (!media || media.length === 0) {
+    return <div className={styles.container}>No media to display.</div>;
+  }
 
   if (media.length === 1) {
     return (
       <div className={styles.container}>
-        <MediaItem item={slotA} isVisible={true} />
+        <MediaItem item={media[0]} isVisible={true} />
       </div>
     );
   }
