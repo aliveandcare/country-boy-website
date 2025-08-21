@@ -34,7 +34,7 @@
 .button {
   padding: 0.8rem 2rem;
   border: none;
-  background-color: #ef4444; /* Red for sign out */
+  background-color: #ef4444;
   color: white;
   font-size: 1rem;
   font-weight: bold;
@@ -44,7 +44,7 @@
 }
 
 .button:hover {
-  background-color: #dc2626; /* Darker Red */
+  background-color: #dc2626; 
 }
 .divider {
   border: none;
@@ -128,7 +128,7 @@
   flex-grow: 1;
 }
 
-/* Status badge colors */
+
 .NotStarted {
   background-color: #e0e7ff;
   color: #4338ca;

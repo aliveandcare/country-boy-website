@@ -42,9 +42,9 @@ export default function JobDetailPage() {
     return () => unsubscribe();
   }, [user, jobId]);
 
-  // handleStatusChange function remains the same
+  
   const handleStatusChange = async (e: React.ChangeEvent<HTMLSelectElement>) => {
-    // ... logic to update status
+    
   };
 
   if (isLoading) return <div className={styles.loading}>Loading Job Details...</div>;
@@ -60,7 +60,6 @@ export default function JobDetailPage() {
               <h1 className={styles.clientName}>{job.clientName}</h1>
               <p className={styles.address}>{job.address}</p>
             </div>
-            {/* The status dropdown remains the same */}
           </div>
           <hr className={styles.divider} />
           <div className={styles.details}>

@@ -1,5 +1,5 @@
 .section {
-  background-color: #1f2937; /* Dark Gray/Off-black */
+  background-color: #1f2937; 
   color: #ffffff;
   padding: 4rem 1.5rem;
   text-align: center;
@@ -12,7 +12,7 @@
 
 .icon {
   font-size: 2.5rem;
-  color: #2563eb; /* Primary Blue */
+  color: #2563eb;
   margin-bottom: 1rem;
 }
 
@@ -24,14 +24,14 @@
 
 .subheading {
   font-size: 1.1rem;
-  color: #d1d5db; /* Light Gray */
+  color: #d1d5db;
   margin: 1rem auto 2rem auto;
   line-height: 1.6;
 }
 
 .ctaButton {
   display: inline-block;
-  background-color: #2563eb; /* Primary Blue */
+  background-color: #2563eb;
   color: #ffffff;
   font-size: 1.1rem;
   font-weight: bold;
@@ -42,5 +42,5 @@
 }
 
 .ctaButton:hover {
-  background-color: #1d4ed8; /* Darker Blue */
+  background-color: #1d4ed8;
 }

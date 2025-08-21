@@ -58,7 +58,6 @@ export default function Header({ settings }: { settings: SiteSettings }) {
         <button onClick={() => { openQuoteModal(); handleLinkClick(); }} className={styles.quoteButton}>
           Bring Your Vision To Life
         </button>
-        {/* Use the dynamic phone number from Sanity again for the mobile menu */}
         <a href={`tel:${phoneNumber}`} className={styles.phoneNumber}>{phoneNumber}</a>
       </nav>
     </div>

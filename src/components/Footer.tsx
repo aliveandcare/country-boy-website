@@ -42,12 +42,11 @@ export default function Footer({ settings }: { settings: SiteSettings }) {
           </ul>
         </div>
 
-        {/* Contact Column */}
+        
         <div className={styles.column}>
           <h3>Contact Us</h3>
           <address className={styles.contactInfo}>
             <ul className={styles.linkList}>
-              {/* Use the dynamic phone number and email from Sanity */}
               <li><a href={`tel:${phoneNumber}`}>{phoneNumber}</a></li>
               <li><a href={`mailto:${emailAddress}`}>{emailAddress}</a></li>
             </ul>

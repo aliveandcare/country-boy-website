@@ -1,7 +1,7 @@
 'use client';
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
-import styles from './AutoCarousel.module.css'; // Import the new styles
+import styles from './AutoCarousel.module.css'; 
 
 const images = [
   {
@@ -24,16 +24,14 @@ export default function AutoCarousel() {
   useEffect(() => {
     const intervalId = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
-    }, 5000); // Cycles every 5 seconds
-
+    }, 5000); 
     return () => clearInterval(intervalId);
   }, []);
 
   const currentPair = images[currentIndex];
 
   return (
-    <div className={styles.carousel}>
-      {/* Before Image */}
+    <div className={styles.carousel}>      
       <div className={styles.imageContainer}>
         <Image
           src={currentPair.before}
@@ -43,7 +41,6 @@ export default function AutoCarousel() {
           unoptimized
         />
       </div>
-      {/* After Image */}
       <div className={styles.imageContainer}>
         <Image
           src={currentPair.after}

@@ -67,7 +67,6 @@ export default function PhotoCollage({ media }: PhotoCollageProps) {
   );
 
   useEffect(() => {
-    // Conditional logic is now inside the effect, which is allowed.
     if (!media || media.length < 2) return;
 
     const currentMedia = isSlotAVisible ? slotA : slotB;

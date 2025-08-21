@@ -21,10 +21,8 @@ export default function PortalLoginPage() {
 
     try {
       await signInWithEmailAndPassword(auth, email, password);
-      // On successful login, redirect to the dashboard
       router.push('/dashboard');
     } catch (err: unknown) {
-      // Handle Firebase errors (e.g., wrong password, user not found)
       if (err instanceof FirebaseError) {
         if (err.code === 'auth/invalid-credential') {
           setError('Invalid email or password.');

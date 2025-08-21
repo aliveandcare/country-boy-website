@@ -1,4 +1,3 @@
-// next.config.js
 
 require('dotenv').config();
 
@@ -16,7 +15,7 @@ const nextConfig = {
       },
       {
         protocol: 'https',
-        hostname: 'cdn.sanity.io', // <-- ADD THIS BLOCK
+        hostname: 'cdn.sanity.io',
       },
     ],
   },

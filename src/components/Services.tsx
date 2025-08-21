@@ -10,7 +10,7 @@ interface Service {
   iconUrl: string | null;
 }
 
-// Update the props to include the onClick function
+
 interface ServicesProps {
   services: Service[];
   onServiceClick: () => void;
@@ -26,7 +26,6 @@ export default function Services({ services, onServiceClick }: ServicesProps) {
       <h2 className={styles.heading}>Our Services</h2>
       <div className={styles.grid}>
         {services.map((service) => (
-          // Wrap the card in a button that triggers the modal
           <button key={service.title} className={styles.cardButton} onClick={onServiceClick}>
             <div className={styles.card}>
               {service.iconUrl && (

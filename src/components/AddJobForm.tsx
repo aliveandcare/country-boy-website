@@ -29,7 +29,7 @@ export default function AddJobForm({ onClose }: AddJobFormProps) {
         description,
         status,
       });
-      onClose(); // Close the modal on success
+      onClose();
     } catch (err) {
       setError('Failed to add job. Please try again.');
       console.error(err);

@@ -1,8 +1,7 @@
-// src/components/AboutPageContent.tsx
+
 
 import React from 'react';
 import Image from 'next/image';
-// Note: Adjust the path to your CSS file if needed
 import styles from '@/app/about/about.module.css';
 
 export default function AboutPageContent() {

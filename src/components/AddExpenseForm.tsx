@@ -49,7 +49,6 @@ export default function AddExpenseForm({ jobId, onClose }: AddExpenseFormProps) 
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Here you would add logic to save the expense to Firestore
     console.log({ vendor, total, category });
     alert('Expense saved! (Functionality to be fully added)');
     onClose();

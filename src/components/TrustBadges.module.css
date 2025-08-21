@@ -26,12 +26,11 @@
 }
 
 .title {
-  font-size: .8rem; /* 17px */
+  font-size: .8rem; 
   font-weight: 600;
   color: #1f2937;
 }
 
-/* On medium screens and up, switch to a 4-column layout */
 @media (min-width: 768px) {
   .container {
     grid-template-columns: repeat(4, 1fr);

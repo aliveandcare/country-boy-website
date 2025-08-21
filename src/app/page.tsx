@@ -1,7 +1,6 @@
 import HomePageClient from '@/components/HomePageClient';
 import { client } from '@/sanity/client';
 
-// Define the data types we expect from Sanity
 interface SanityMedia {
   mediaUrl: string;
   mediaType: 'image' | 'video';

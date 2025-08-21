@@ -1,6 +1,6 @@
 .footer {
-  background-color: #111827; /* Very dark gray, almost black */
-  color: #d1d5db; /* Light gray for text */
+  background-color: #111827; 
+  color: #d1d5db;
   padding: 4rem 1.5rem 2rem 1.5rem;
 }
 
@@ -8,7 +8,7 @@
   max-width: 1200px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 1fr; /* Single column on mobile */
+  grid-template-columns: 1fr; 
   gap: 2.5rem;
 }
 
@@ -19,7 +19,7 @@
 .aboutText {
   font-size: 0.9rem;
   line-height: 1.6;
-  color: #9ca3af; /* Lighter gray for the description */
+  color: #9ca3af; 
   margin-top: 1rem;
 }
 
@@ -51,22 +51,22 @@
 }
 
 .contactInfo {
-  font-style: normal; /* Removes default italic styling from <address> */
+  font-style: normal;
 }
 
 .bottomBar {
   max-width: 1200px;
   margin: 3rem auto 0 auto;
   padding-top: 2rem;
-  border-top: 1px solid #374151; /* A subtle border */
+  border-top: 1px solid #374151;
   text-align: center;
   font-size: 0.875rem;
   color: #9ca3af;
 }
 
-/* Media query for a multi-column layout on larger screens */
+
 @media (min-width: 768px) {
   .container {
-    grid-template-columns: 2fr 1fr 1fr; /* 3 columns, with the first being wider */
+    grid-template-columns: 2fr 1fr 1fr;
   }
 }

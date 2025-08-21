@@ -32,7 +32,6 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {/* This {children} prop is what renders your page.js content */}
         {children}
         <FloatingSocials />
       </body>

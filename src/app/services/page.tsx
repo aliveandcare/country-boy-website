@@ -1,5 +1,3 @@
-// app/services/page.tsx
-
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { client } from '@/sanity/client';

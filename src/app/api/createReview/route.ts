@@ -1,9 +1,7 @@
-// app/api/createReview/route.ts
 import { createClient } from '@sanity/client';
 import { NextRequest, NextResponse } from 'next/server';
 
 const client = createClient({
-  // Use the new, dedicated server-side environment variable
   projectId: process.env.SANITY_PROJECT_ID,
   dataset: process.env.NEXT_PUBLIC_SANITY_DATASET,
   useCdn: false,
