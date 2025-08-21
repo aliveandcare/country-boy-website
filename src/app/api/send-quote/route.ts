@@ -16,6 +16,8 @@ export async function POST(request: Request) {
     const phone = data.get('phone') as string;
     const description = data.get('description') as string;
     const attachment = data.get('attachment') as File;
+
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const messageData: any = {
       from: `Quote Request <mailgun@${process.env.MAILGUN_DOMAIN}>`,
       to: [process.env.TO_EMAIL_ADDRESS || ''],
