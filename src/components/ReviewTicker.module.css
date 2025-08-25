@@ -20,7 +20,7 @@
   padding: 0;
   margin: 0;
   display: inline-block;
-  animation: scroll-up 40s linear infinite;
+  animation: scroll-up 120s linear infinite;
 }
 
 .card {
