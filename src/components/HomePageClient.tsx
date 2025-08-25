@@ -22,6 +22,7 @@ interface Review {
   quote: string;
   authorName: string;
   rating: number;
+  _id: string;
 }
 
 interface CtaContent {
