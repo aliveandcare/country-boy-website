@@ -34,7 +34,7 @@ interface SanityService {
 async function getPageData() {
   const query = `{
     "galleryItems": *[_type == "project"] | order(_createdAt asc){ "mediaUrl": mediaFile.asset->url, mediaType },
-    "reviews": *[_type == "testimonial" && isApproved == true]{ quote, authorName, rating },
+    "reviews": *[_type == "testimonial" && isApproved == true]{ quote, authorName, rating, _id },
     "ctaContent": *[_type == "homePage"][0]{ ctaHeading, ctaSubheading, ctaButtonText },
     "settings": *[_type == "siteSettings"][0]{ phoneNumber, emailAddress, facebookURL, instagramURL },
     "services": *[_type == "service"]{ title, description, "iconUrl": mainImage.asset->url }

@@ -8,6 +8,7 @@ interface Review {
   quote: string;
   authorName: string;
   rating: number;
+  _id: string;
 }
 
 export default function ReviewTicker({ reviews }: { reviews: Review[] }) {
@@ -15,13 +16,13 @@ export default function ReviewTicker({ reviews }: { reviews: Review[] }) {
     return <div className={styles.tickerWrap}>No approved reviews yet.</div>;
   }
 
-  const extendedReviews = [...reviews, ...reviews];
+  const extendedReviews = [...reviews, ...reviews, ...reviews, ...reviews];
 
   return (
     <div className={styles.tickerWrap}>
       <ul className={styles.ticker}>
         {extendedReviews.map((review, index) => (
-          <li key={`${review.authorName}-${index}`} className={styles.card}>
+          <li key={`${review._id}-${index}`} className={styles.card}>
             <div className={styles.header}>
               <p className={styles.name}>{review.authorName}</p>
               <div className={styles.stars}>
